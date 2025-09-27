@@ -1,31 +1,50 @@
-import api from "./api";
+import { mockReservations } from "../data/mock";
+
+// Simular almacenamiento local
+let reservations = [...mockReservations];
+let nextId = Math.max(...mockReservations.map((r) => r.id)) + 1;
 
 export const reservationService = {
   // Crear nueva reserva
   createReservation: async (reservationData: any) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const newReservation = {
       ...reservationData,
+      id: nextId++,
       createdAt: new Date().toISOString(),
     };
-    const response = await api.post("/reservations", newReservation);
-    return response.data;
+
+    reservations.push(newReservation);
+    return newReservation;
   },
 
   // Obtener reservas de un usuario
   getUserReservations: async (userId: number) => {
-    const response = await api.get(`/reservations?userId=${userId}`);
-    return response.data;
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    return reservations
+      .filter((r) => r.userId === userId)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   },
 
   // Obtener reserva por ID
   getReservationById: async (id: number) => {
-    const response = await api.get(`/reservations/${id}`);
-    return response.data;
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    const reservation = reservations.find((r) => r.id === id);
+    if (!reservation) {
+      throw new Error("Reserva no encontrada");
+    }
+    return reservation;
   },
 
   // Actualizar estado de reserva
   updateReservationStatus: async (id: number, status: any) => {
-    const response = await api.patch(`/reservations/${id}`, { status });
-    return response.data;
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    const reservation = reservations.find((r) => r.id === id);
+    if (!reservation) {
+      throw new Error("Reserva no encontrada");
+    }
+    reservation.status = status;
+    return reservation;
   },
 };

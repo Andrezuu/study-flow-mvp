@@ -20,7 +20,7 @@ interface SpaceCardProps {
 
 export default function SpaceCard({ space, onViewDetails }: SpaceCardProps) {
   const [imageLoading, setImageLoading] = React.useState(true);
-  const [imageError, setImageError] = React.useState(false);
+  const [_, setImageError] = React.useState(false);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("es-CL", {
