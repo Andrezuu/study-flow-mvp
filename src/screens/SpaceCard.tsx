@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Card,
   CardMedia,
@@ -8,6 +9,7 @@ import {
   Chip,
   Box,
   Rating,
+  Skeleton,
 } from "@mui/material";
 import { LocationOn, People } from "@mui/icons-material";
 
@@ -17,26 +19,42 @@ interface SpaceCardProps {
 }
 
 export default function SpaceCard({ space, onViewDetails }: SpaceCardProps) {
+  const [imageLoading, setImageLoading] = React.useState(true);
+  const [imageError, setImageError] = React.useState(false);
+
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("es-CL", {
       style: "currency",
-      currency: "CLP",
+      currency: "BOB",
     }).format(price);
+  };
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    setImageLoading(false);
+    setImageError(true);
+    (e.target as HTMLImageElement).src =
+      "https://via.placeholder.com/400x200/e3f2fd/1976d2?text=Study+Space";
   };
 
   return (
     <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+      {imageLoading && <Skeleton variant="rectangular" height={200} />}
+
       <CardMedia
         component="img"
         height="200"
         image={space.imageUrl}
         alt={space.name}
-        sx={{ objectFit: "cover" }}
-        onError={(e) => {
-          // Fallback para imagen no encontrada
-          (e.target as HTMLImageElement).src =
-            "https://via.placeholder.com/400x200?text=Imagen+No+Disponible";
+        sx={{
+          objectFit: "cover",
+          display: imageLoading ? "none" : "block",
         }}
+        onLoad={handleImageLoad}
+        onError={handleImageError}
       />
 
       <CardContent sx={{ flexGrow: 1 }}>
@@ -45,7 +63,9 @@ export default function SpaceCard({ space, onViewDetails }: SpaceCardProps) {
         </Typography>
 
         <Typography variant="body2" color="text.secondary" paragraph>
-          {space.description}
+          {space.description.length > 100
+            ? `${space.description.substring(0, 100)}...`
+            : space.description}
         </Typography>
 
         <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>

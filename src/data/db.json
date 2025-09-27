@@ -1,80 +1,105 @@
 {
   "spaces": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Sala Silenciosa Norte",
       "description": "Espacio perfecto para estudio individual. Ambiente completamente silencioso con luz natural.",
-      "pricePerHour": 15000,
+      "pricePerHour": 15,
       "location": "Edificio Norte, Piso 2",
-      "imageUrl": "/images/sala-silenciosa.jpg",
-      "amenities": [
-        "WiFi",
-        "Enchufes",
-        "Aire acondicionado",
-        "Luz natural"
-      ],
+      "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=faces",
+      "amenities": ["WiFi", "Enchufes", "Aire acondicionado", "Luz natural"],
       "capacity": 1,
       "rating": 4.8,
       "availability": true
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Sala Grupal Centro",
       "description": "Ideal para grupos de estudio de 4-6 personas. Incluye pizarra y proyector.",
-      "pricePerHour": 25000,
+      "pricePerHour": 25,
       "location": "Edificio Central, Piso 1",
-      "imageUrl": "/images/sala-grupal.jpg",
-      "amenities": [
-        "WiFi",
-        "Pizarra",
-        "Proyector",
-        "Mesa grande",
-        "Aire acondicionado"
-      ],
+      "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=faces",
+      "amenities": ["WiFi", "Pizarra", "Proyector", "Mesa grande", "Aire acondicionado"],
       "capacity": 6,
       "rating": 4.6,
       "availability": true
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Cabina Premium",
       "description": "Cabina individual con escritorio ergonómico y máxima privacidad.",
-      "pricePerHour": 20000,
+      "pricePerHour": 20,
       "location": "Edificio Sur, Piso 3",
-      "imageUrl": "/images/cabina-premium.jpg",
-      "amenities": [
-        "WiFi",
-        "Escritorio ergonómico",
-        "Lámpara LED",
-        "Cafetera",
-        "Silencioso"
-      ],
+      "imageUrl": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&h=400&fit=crop&crop=faces",
+      "amenities": ["WiFi", "Escritorio ergonómico", "Lámpara LED", "Cafetera", "Silencioso"],
       "capacity": 1,
       "rating": 4.9,
       "availability": true
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Sala Colaborativa",
       "description": "Espacio flexible para trabajo en equipo con mobiliario modular.",
-      "pricePerHour": 30000,
+      "pricePerHour": 30,
       "location": "Edificio Oeste, Piso 2",
-      "imageUrl": "/images/sala-colaborativa.jpg",
-      "amenities": [
-        "WiFi",
-        "Mobiliario modular",
-        "TV 55''",
-        "Pizarra digital",
-        "Café gratis"
-      ],
+      "imageUrl": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&h=400&fit=crop&crop=faces",
+      "amenities": ["WiFi", "Mobiliario modular", "TV 55''", "Pizarra digital", "Café gratis"],
       "capacity": 8,
       "rating": 4.7,
       "availability": false
+    },
+    {
+      "id": 5,
+      "name": "Estudio Ejecutivo",
+      "description": "Oficina privada equipada para profesionales y reuniones importantes.",
+      "pricePerHour": 35,
+      "location": "Edificio Central, Piso 5",
+      "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=400&fit=crop&crop=faces",
+      "amenities": ["WiFi", "Escritorio ejecutivo", "Silla ergonómica", "Teléfono", "Ventana panorámica"],
+      "capacity": 2,
+      "rating": 4.9,
+      "availability": true
+    },
+    {
+      "id": 6,
+      "name": "Sala de Lectura",
+      "description": "Ambiente tranquilo con excelente iluminación, ideal para lectura prolongada.",
+      "pricePerHour": 12,
+      "location": "Edificio Norte, Piso 1",
+      "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=faces",
+      "amenities": ["WiFi", "Luz natural", "Silencioso", "Enchufes", "Estanterías"],
+      "capacity": 1,
+      "rating": 4.5,
+      "availability": true
+    },
+    {
+      "id": 7,
+      "name": "Laboratorio de Idiomas",
+      "description": "Espacio equipado con tecnología audiovisual para práctica de idiomas.",
+      "pricePerHour": 28,
+      "location": "Edificio Oeste, Piso 3",
+      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&crop=faces",
+      "amenities": ["WiFi", "Audífonos", "Micrófono", "Software especializado", "Aire acondicionado"],
+      "capacity": 4,
+      "rating": 4.7,
+      "availability": true
+    },
+    {
+      "id": 8,
+      "name": "Pod Individual",
+      "description": "Cápsula de estudio individual con diseño moderno y máxima concentración.",
+      "pricePerHour": 18,
+      "location": "Edificio Sur, Piso 1",
+      "imageUrl": "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&h=400&fit=crop&crop=faces",
+      "amenities": ["WiFi", "Aislamiento acústico", "Luz LED regulable", "USB", "Ventilación"],
+      "capacity": 1,
+      "rating": 4.8,
+      "availability": true
     }
   ],
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Juan Pérez",
       "email": "juan@email.com",
       "phone": "+56987654321"
@@ -82,7 +107,7 @@
   ],
   "reservations": [
     {
-      "id": "1",
+      "id": 1,
       "spaceId": 1,
       "userId": 1,
       "date": "2025-09-28",
@@ -95,7 +120,7 @@
       "createdAt": "2025-09-27T10:30:00Z"
     },
     {
-      "id": "2",
+      "id": 2,
       "spaceId": 2,
       "userId": 1,
       "date": "2025-09-25",
@@ -106,61 +131,17 @@
       "status": "completed",
       "paymentMethod": "cash",
       "createdAt": "2025-09-24T15:20:00Z"
-    },
-    {
-      "id": "2ac1",
-      "spaceId": "1",
-      "userId": 1,
-      "date": "2025-10-02",
-      "startTime": "11:35",
-      "endTime": "14:35",
-      "duration": 3,
-      "totalPrice": 45000,
-      "status": "confirmed",
-      "paymentMethod": "qr",
-      "createdAt": "2025-09-27T15:29:31.515Z"
-    },
-    {
-      "id": "cac2",
-      "spaceId": "1",
-      "userId": 1,
-      "date": "2025-10-10",
-      "startTime": "23:31",
-      "endTime": "24:31",
-      "duration": 1,
-      "totalPrice": 15000,
-      "status": "confirmed",
-      "paymentMethod": "card",
-      "createdAt": "2025-09-27T15:29:48.674Z"
     }
   ],
   "feedback": [
     {
-      "id": "1",
+      "id": 1,
       "reservationId": 2,
       "userId": 1,
       "spaceId": 2,
       "rating": 5,
       "comment": "Excelente espacio, muy cómodo y bien equipado. La pizarra funcionó perfectamente.",
       "createdAt": "2025-09-25T14:30:00Z"
-    },
-    {
-      "id": "7367",
-      "reservationId": "2",
-      "userId": 1,
-      "spaceId": 2,
-      "rating": 4,
-      "comment": "Estuvo buena",
-      "createdAt": "2025-09-27T15:30:04.022Z"
-    },
-    {
-      "id": "9c59",
-      "reservationId": "2",
-      "userId": 1,
-      "spaceId": 2,
-      "rating": 4,
-      "comment": "Estuvo buena",
-      "createdAt": "2025-09-27T15:30:05.789Z"
     }
   ]
 }

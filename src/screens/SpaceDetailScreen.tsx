@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Typography,
@@ -14,7 +14,6 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Grid,
 } from "@mui/material";
 import { ArrowBack, LocationOn, People } from "@mui/icons-material";
 import { useNavigate, useParams } from "react-router-dom";

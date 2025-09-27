@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Typography,
@@ -155,7 +155,7 @@ export default function FeedbackScreen() {
                   <Rating
                     name="rating"
                     value={rating}
-                    onChange={(event, newValue) => {
+                    onChange={(_, newValue) => {
                       setRating(newValue || 0);
                     }}
                     size="large"

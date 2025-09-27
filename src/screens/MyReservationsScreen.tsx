@@ -16,7 +16,7 @@ import {
   Tabs,
   Tab,
 } from "@mui/material";
-import { ArrowBack, LocationOn, AccessTime } from "@mui/icons-material";
+import { ArrowBack, AccessTime } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { reservationService } from "../services/reservationService";
 
@@ -151,7 +151,7 @@ export default function MyReservationsScreen() {
         <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 3 }}>
           <Tabs
             value={tabValue}
-            onChange={(e, newValue) => setTabValue(newValue)}
+            onChange={(_, newValue) => setTabValue(newValue)}
           >
             <Tab label="Próximas" />
             <Tab label="Historial" />
