@@ -20,10 +20,10 @@ interface SpaceCardProps {
 
 export default function SpaceCard({ space, onViewDetails }: SpaceCardProps) {
   const [imageLoading, setImageLoading] = React.useState(true);
-  const [_, setImageError] = React.useState(false);
+  const [imageError, setImageError] = React.useState(false);
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("es-CL", {
+    return new Intl.NumberFormat("es-BO", {
       style: "currency",
       currency: "BOB",
     }).format(price);
@@ -37,12 +37,29 @@ export default function SpaceCard({ space, onViewDetails }: SpaceCardProps) {
     setImageLoading(false);
     setImageError(true);
     (e.target as HTMLImageElement).src =
-      "https://via.placeholder.com/400x200/e3f2fd/1976d2?text=Study+Space";
+      "https://via.placeholder.com/400x200/9C88D4/ffffff?text=Study+Space";
   };
 
   return (
-    <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-      {imageLoading && <Skeleton variant="rectangular" height={200} />}
+    <Card
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
+        "&:hover": {
+          transform: "translateY(-4px)",
+          boxShadow: "0 8px 24px rgba(156, 136, 212, 0.2)",
+        },
+      }}
+    >
+      {imageLoading && (
+        <Skeleton
+          variant="rectangular"
+          height={200}
+          sx={{ backgroundColor: "#f0f0f0" }}
+        />
+      )}
 
       <CardMedia
         component="img"
@@ -57,8 +74,13 @@ export default function SpaceCard({ space, onViewDetails }: SpaceCardProps) {
         onError={handleImageError}
       />
 
-      <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom variant="h6" component="h2">
+      <CardContent sx={{ flexGrow: 1, p: 2.5 }}>
+        <Typography
+          gutterBottom
+          variant="h6"
+          component="h2"
+          sx={{ fontWeight: 600 }}
+        >
           {space.name}
         </Typography>
 
@@ -69,14 +91,26 @@ export default function SpaceCard({ space, onViewDetails }: SpaceCardProps) {
         </Typography>
 
         <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-          <LocationOn sx={{ fontSize: 16, mr: 0.5, color: "text.secondary" }} />
+          <LocationOn
+            sx={{
+              fontSize: 16,
+              mr: 0.5,
+              //color: "#9C88D4"
+            }}
+          />
           <Typography variant="body2" color="text.secondary">
             {space.location}
           </Typography>
         </Box>
 
         <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-          <People sx={{ fontSize: 16, mr: 0.5, color: "text.secondary" }} />
+          <People
+            sx={{
+              fontSize: 16,
+              mr: 0.5,
+              //color: "#9C88D4"
+            }}
+          />
           <Typography variant="body2" color="text.secondary">
             Capacidad: {space.capacity} persona{space.capacity > 1 ? "s" : ""}
           </Typography>
@@ -96,31 +130,52 @@ export default function SpaceCard({ space, onViewDetails }: SpaceCardProps) {
               label={amenity}
               size="small"
               variant="outlined"
+              sx={{
+                // borderColor: "#9C88D4", color: "#7B68B8",
+                fontSize: "0.75rem",
+              }}
             />
           ))}
           {space.amenities.length > 3 && (
             <Chip
               label={`+${space.amenities.length - 3} más`}
               size="small"
-              variant="outlined"
+              variant="filled"
               color="primary"
+              sx={{ fontSize: "0.75rem" }}
             />
           )}
         </Box>
 
-        <Typography variant="h6" color="primary" sx={{ fontWeight: "bold" }}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: "bold",
+            // color: "#9C88D4",
+            textAlign: "center",
+            py: 1,
+            backgroundColor: "rgba(156, 136, 212, 0.08)",
+            borderRadius: 1,
+          }}
+        >
           {formatPrice(space.pricePerHour)}/hora
         </Typography>
       </CardContent>
 
-      <CardActions sx={{ p: 2, pt: 0 }}>
+      <CardActions sx={{ p: 2.5, pt: 0 }}>
         <Button
           fullWidth
           variant="contained"
           onClick={() => onViewDetails(space.id)}
           disabled={!space.availability}
+          sx={{
+            py: 1.5,
+            borderRadius: 2,
+            fontWeight: 600,
+            textTransform: "none",
+          }}
         >
-          {space.availability ? "Ver más" : "No disponible"}
+          {space.availability ? "Ver más detalles" : "No disponible"}
         </Button>
       </CardActions>
     </Card>

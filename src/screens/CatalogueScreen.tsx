@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Typography,
@@ -13,6 +13,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { spaceService } from "../services/spaceService";
 import SpaceCard from "./SpaceCard";
+
 export default function CatalogScreen() {
   const navigate = useNavigate();
   const [spaces, setSpaces] = useState<any[]>([]);
@@ -45,30 +46,69 @@ export default function CatalogScreen() {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        sx={{
+          // background: "linear-gradient(135deg, #9C88D4 0%, #B8A9D4 100%)",
+          // boxShadow: "0 4px 20px rgba(156, 136, 212, 0.3)",
+        }}
+      >
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, fontWeight: 600 }}
+          >
             Study Flow
           </Typography>
-          <Button color="inherit" onClick={() => navigate("/my-reservations")}>
+          <Button
+            color="inherit"
+            onClick={() => navigate("/my-reservations")}
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+              },
+              borderRadius: 2,
+              px: 2,
+            }}
+          >
             Mis Reservas
           </Button>
         </Toolbar>
       </AppBar>
 
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          sx={{
+            color: "#333333",
+            fontWeight: 600,
+            textAlign: "center",
+            mb: 4,
+          }}
+        >
           Espacios de Estudio Disponibles
         </Typography>
 
         {loading && (
           <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-            <CircularProgress />
+            <CircularProgress sx={{ color: "#9C88D4" }} />
           </Box>
         )}
 
         {error && (
-          <Alert severity="error" sx={{ mt: 2 }}>
+          <Alert
+            severity="error"
+            sx={{
+              mt: 2,
+              "& .MuiAlert-icon": {
+                color: "#d32f2f",
+              },
+            }}
+          >
             {error}
           </Alert>
         )}
@@ -84,9 +124,14 @@ export default function CatalogScreen() {
         )}
 
         {!loading && !error && spaces.length === 0 && (
-          <Typography variant="body1" sx={{ mt: 4, textAlign: "center" }}>
-            No hay espacios disponibles en este momento.
-          </Typography>
+          <Box sx={{ textAlign: "center", py: 6 }}>
+            <Typography variant="h6" color="text.secondary" gutterBottom>
+              No hay espacios disponibles en este momento.
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Intenta más tarde o contacta con soporte.
+            </Typography>
+          </Box>
         )}
       </Container>
     </>
